@@ -127,7 +127,7 @@ var frontpage = [
 	"",
 	"",
 	"# 链接",
-	"加速站点: ",
+	"加速站点: https://chat.spr233.eu.org",
 	"冬日小屋论坛: https://bbs.spr233.eu.org",
 	"冬日小屋mc服务器: https://craft.spr233.eu.org",
 	"冬日小屋网盘: https://cloud.spr233.eu.org",
