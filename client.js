@@ -535,9 +535,9 @@ function updateTitle() {
 
 	var title;
 	if (myChannel) {
-		title = "?" + myChannel;
+		title = "小屋: " + myChannel;
 	} else {
-		title = "hack.chat";
+		title = "(｡･∀･)ﾉﾞ嗨，欢迎来到冬日小屋";
 	}
 
 	if (unread > 0) {
