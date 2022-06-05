@@ -98,7 +98,7 @@ md.use(remarkableKatex);
 function verifyLink(link) {
 	var linkHref = Remarkable.utils.escapeHtml(Remarkable.utils.replaceEntities(link.href));
 	if (linkHref !== link.innerHTML) {
-		return confirm('Warning, please verify this is where you want to go: ' + linkHref);
+		return confirm('请确保跳转链接安全: ' + linkHref);
 	}
 
 	return true;
@@ -310,7 +310,7 @@ function join(channel) {
 		// if you are reverse proxying, change 'wsPath' to the new location
 		// (example: '/chat-ws')
 		var wsPath = ':6060';
-		ws = new WebSocket(protocol + '//' + document.domain + wsPath);
+		ws = new WebSocket('wss://sprchatport.run.goorm.io');
 	}
 
 	var wasConnected = false;
@@ -321,7 +321,7 @@ function join(channel) {
 			if (location.hash) {
 				myNick = location.hash.substr(1);
 			} else {
-				var newNick = prompt('Nickname:', myNick);
+				var newNick = prompt('用户名', myNick);
 				if (newNick !== null) {
 					myNick = newNick;
 				} else {
@@ -341,7 +341,7 @@ function join(channel) {
 
 	ws.onclose = function () {
 		if (wasConnected) {
-			pushMessage({ nick: '!', text: "Server disconnected. Attempting to reconnect. . ." });
+			pushMessage({ nick: '!', text: "啊，掉线了，正在重连. . ." });
 		}
 
 		window.setTimeout(function () {
@@ -384,7 +384,7 @@ var COMMANDS = {
 			userAdd(nick);
 		});
 
-		pushMessage({ nick: '*', text: "Users online: " + nicks.join(", ") })
+		pushMessage({ nick: '*', text: "在线的用户 " + nicks.join(", ") })
 	},
 
 	onlineAdd: function (args) {
@@ -393,7 +393,7 @@ var COMMANDS = {
 		userAdd(nick);
 
 		if ($('#joined-left').checked) {
-			pushMessage({ nick: '*', text: nick + " joined" });
+			pushMessage({ nick: '*', text: nick + " 加入聊天室" });
 		}
 	},
 
@@ -403,7 +403,7 @@ var COMMANDS = {
 		userRemove(nick);
 
 		if ($('#joined-left').checked) {
-			pushMessage({ nick: '*', text: nick + " left" });
+			pushMessage({ nick: '*', text: nick + " 退出聊天室" });
 		}
 	}
 }
