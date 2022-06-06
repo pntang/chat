@@ -301,7 +301,7 @@ function join(channel) {
 		// if you are reverse proxying, change 'wsPath' to the new location
 		// (example: '/chat-ws')
 		var wsPath = ':6060';
-		ws = new WebSocket('wss://chatport.spr233.eu.org');
+		ws = new WebSocket('wss://sprchatport.run.goorm.io');
 	}
 
 	var wasConnected = false;
