@@ -312,7 +312,7 @@ function join(channel) {
 			if (location.hash) {
 				myNick = location.hash.substr(1);
 			} else {
-				var newNick = prompt('用户名', myNick);
+				var newNick = prompt('你的昵称?', myNick);
 				if (newNick !== null) {
 					myNick = newNick;
 				} else {
